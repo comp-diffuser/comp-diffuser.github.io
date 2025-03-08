@@ -33,6 +33,8 @@
   <script src="./static/js/index_compdfu.js"></script>
   <script src="load-mathjax.js" async></script>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
+
   <link rel="stylesheet" href="./static/css/splide.min.css">
   <script src="./static/js/splide.min.js"></script>
   <link rel="icon" type="image/x-icon" href="./materials/favicon.ico" />
@@ -59,7 +61,7 @@
           <div class="is-size-5 publication-authors">
             <!-- TODO: -->
             <span class="author-block">
-              <a href="author">Yunhao Luo</a><sup>1</sup>,
+              <a href="https://devinluo27.github.io/">Yunhao Luo</a><sup>1</sup>,
             </span>
             <span class="author-block">
               <a href="https://umishra.me/">Utkarsh A. Mishra</a><sup>1</sup>,
@@ -147,6 +149,37 @@
 
 
 
+<!-- style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 4px solid #bbb; border-radius: 10px;"  -->
+<!-- justify-content: center;  align-items: center; display: flex;  -->
+<section class="section" style="padding-bottom: 0">
+  <div class="container">
+    <div id="method_video" class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds no-bottom-padding">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; justify-content: center;  align-items: center; display: flex;">
+          <iframe 
+            src="https://www.youtube.com/embed/fJRFPBicCsg" 
+            title="YouTube video player" 
+            frameborder="0" 
+            style="position: absolute; top: 0; left: 10; width: 88.5%; height: 99.8%; border: 4px solid #ccc; border-radius: 10px;" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p style="font-size: 18px; margin-top: 10px" class="has-text-justified">
+          <!-- 5A36CD -->
+          <!-- style="color: #000000" -->
+          <b>Trajectory Stitching via Compositional Trajectory Generation.</b>
+          The proposed method, <b class="cpdfu_gradient_text">CompDiffuser</b>, generates long-horizon plans by compositionally sampling a sequence of coherent short trajectory segments
+          (while only being trained on short-horizon data).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 
 <section class="section" style="margin-top: 11px; padding-top: 2.0rem">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
@@ -159,13 +192,14 @@
           <p style="font-size: 19px;">
             <b style="color: #5A36CD">Compositional Trajectory Generation.</b>
             The proposed method, CompDiffuser, generates long-horizon plans by compositionally sampling a set of coherent short trajectory segments.
-            <!-- while only being trained on short-horizon data, which is achieved by  -->
           </p>
           </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
+
+
 
 <hr>
 
@@ -178,8 +212,8 @@
         <div class="content has-text-justified div_abs_text">
           <p>
 
-            Effective trajectory stitching for long-horizon planning is a significant challenge in robotic decision-making. While diffusion models have shown promise in planning, they are limited to solving tasks similar to those seen in their training data. We propose CompDiffuser, a novel generative approach that can solve new tasks by learning to compositionally stitch together shorter trajectory chunks from previously seen tasks. Our key insight is modeling the trajectory distribution by subdividing it into overlapping chunks and learning their conditional relationships through a single bidirectional diffusion model. This allows information to propagate between segments during generation, ensuring physically consistent connections. 
-            We conduct experiments on benchmark tasks of various difficulties, covering different environment sizes, agent state dimension, training data quality, and show that CompDiffuser significantly outperforming existing methods.
+            Effective trajectory stitching for long-horizon planning is a significant challenge in robotic decision-making. While diffusion models have shown promise in planning, they are limited to solving tasks similar to those seen in their training data. We propose <b class="cpdfu_gradient_text">CompDiffuser</b>, a novel generative approach that can solve new tasks by learning to compositionally stitch together shorter trajectory chunks from previously seen tasks. Our key insight is modeling the trajectory distribution by subdividing it into overlapping chunks and learning their conditional relationships through a single bidirectional diffusion model. This allows information to propagate between segments during generation, ensuring physically consistent connections. 
+            We conduct experiments on benchmark tasks of various difficulties, covering different environment sizes, agent state dimension, training data quality, and show that <b class="cpdfu_gradient_text">CompDiffuser</b> significantly outperforming existing methods.
 
             
           </p>
@@ -249,13 +283,15 @@
           <p>
             <div class="left-caption">
               <b>Compositional Trajectory Denoising Process.</b>
-              We train CompDiffuser on the 
+              We train <b class="cpdfu_gradient_text">CompDiffuser</b> on the 
               <a href="https://seohong.me/projects/ogbench/">OGBench</a> 
               PointMaze Large Stitch Dataset, which only contains short trajectories that travel at most 4 blocks. 
-              However, at test time, the agent needs to travel up to 15 blocks to reach the given goal (purple star) from the given start (blue circle).
+              However, at test time, the agent needs to travel up to 15 blocks to reach the given goal 
+              (<b class="sns_muted_purple">purple star</b>) 
+              from the given start (<b class="sns_muted_blue">blue circle</b>).
               The proposed method is able to compositionally sample 5 trajectories, as shown by different colors, to construct a goal-reaching trajectory of much longer horizon than those seen in the training dataset.
+              
               <!-- <br/> -->
-              <!-- from start (blue circle) to goal (purple star). -->
               <span class="comp_dfu_prc_repl">
                 <span class="replay_v2" video_section="comp_dfu_proc_pntmaze_large">
                   <img src="static/replay.png" />
@@ -1654,6 +1690,11 @@
 
               </div>
               <b> Environment Rollout of CompDiffuser in Humanoid Medium Environment.</b> 
+              The humanoid agent is marked by a green circle and the current subgoal is indicated by a yellow circle.
+              <!-- the movement of the humanoid lags -->
+              Compared to the ant agent, we observe that the humanoid agent is less responsive in tracking the yellow subgoal given by the planner.
+              This is probably due to the locomotion complexity of a humanoid agent and might be mitigated by leveraging more robust and specialized inverse dynamics model.
+
             </div>
           </div>  
         </section>
@@ -1816,7 +1857,8 @@
 
               </div>
               <b> Environment Rollout of CompDiffuser in Humanoid Large Environment.</b> 
-
+              The humanoid agent is marked by a green circle and the current subgoal is indicated by a yellow circle.
+              
               
             </div>
           </div>  
@@ -1953,7 +1995,13 @@
 
               </div>
               <b> Environment Rollout of CompDiffuser in Humanoid Giant Environment.</b> 
-              
+              The humanoid agent is marked by a green circle and the current subgoal is indicated by a yellow circle.
+              Due to the complexity of the inverse dynamics modeling, the humanoid may occasionally lose track of the given subgoal. 
+              A replanning will be triggered when the distance between the agent's position and the subgoal exceeds a threshold, a
+
+              <!-- we use the yellow circle to denote the current subgoal for the humanoid. -->
+              <!-- The humanoid might occasionally lose track of the subgoal due to the inverse dynamic complexity, and replanning will be initiated when the distance between the current subgoal and the agent position is larger than a threshold. -->
+              <!-- is the current subgoal -->
             </div>
           </div>  
         </section>
@@ -2015,7 +2063,7 @@
         <div class="content has-text-justified div_abs_text">
           <p>
 
-            We introduce CompDiffuser, a generative trajectory stitching method that leverages the compositionality of diffusion models. We introduce a noise-conditioned score function formulation that helps in performing autoregressive sampling of multiple short-horizon trajectory diffusion models and eventually stitching them to form a longer-horizon goal-conditioned trajectory. Our method demonstrates effective trajectory stitching capabilities as evident from the extensive experiments on tasks of various difficulty, including different environment sizes, planning state dimensions, trajectory types, and training data quality.
+            We introduce <b class="cpdfu_gradient_text">CompDiffuser</b>, a generative trajectory stitching method that leverages the compositionality of diffusion models. We introduce a noise-conditioned score function formulation that helps in performing autoregressive sampling of multiple short-horizon trajectory diffusion models and eventually stitching them to form a longer-horizon goal-conditioned trajectory. Our method demonstrates effective trajectory stitching capabilities as evident from the extensive experiments on tasks of various difficulty, including different environment sizes, planning state dimensions, trajectory types, and training data quality.
             
           </p>
         </div>
@@ -2036,7 +2084,7 @@
   <div class="container is-max-desktop content column is-full-width ">
     <h2 class="title is-4">BibTeX</h2>
     <pre><code>
-      Paper Under Review.
+      To be updated soon.
     </code></pre>
   </div>
 </section>

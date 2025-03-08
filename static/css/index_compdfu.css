@@ -9,8 +9,22 @@
   
 /*  */
 
+.cpdfu_gradient_text {
+    /* font-size: 50px; */
+    font-weight: bold;
+    background: linear-gradient(to right, #AC55FC, #00B0F0, #AC55FC); /* Adjust colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
 
+.sns_muted_blue {
+  color: rgb(72, 120, 208);
+}
 
+.sns_muted_purple {
+  color: rgb(149, 108, 180);
+}
 
 .antmaze_high_dim_item {
     margin-left: 30px;
