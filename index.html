@@ -216,7 +216,12 @@
         <div class="content has-text-justified div_abs_text">
           <p>
 
-            Effective trajectory stitching for long-horizon planning is a significant challenge in robotic decision-making. While diffusion models have shown promise in planning, they are limited to solving tasks similar to those seen in their training data. We propose <b class="cpdfu_gradient_text">CompDiffuser</b>, a novel generative approach that can solve new tasks by learning to compositionally stitch together shorter trajectory chunks from previously seen tasks. Our key insight is modeling the trajectory distribution by subdividing it into overlapping chunks and learning their conditional relationships through a single bidirectional diffusion model. This allows information to propagate between segments during generation, ensuring physically consistent connections. 
+            Effective trajectory stitching for long-horizon planning is a significant challenge in robotic decision-making. While diffusion models have shown promise in planning, they are limited to solving tasks similar to those seen in their training data. 
+            <br>
+            <br>
+            We propose <b class="cpdfu_gradient_text">CompDiffuser</b>, a novel generative approach that can solve new tasks by learning to compositionally stitch together shorter trajectory chunks from previously seen tasks. Our key insight is modeling the trajectory distribution by subdividing it into overlapping chunks and learning their conditional relationships through a single bidirectional diffusion model. This allows information to propagate between segments during generation, ensuring physically consistent connections. 
+            <br>
+            <br>
             We conduct experiments on benchmark tasks of various difficulties, covering different environment sizes, agent state dimension, training data quality, and show that <b class="cpdfu_gradient_text">CompDiffuser</b> significantly outperforming existing methods.
 
             
